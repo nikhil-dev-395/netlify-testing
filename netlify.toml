@@ -1,0 +1,12 @@
+[build]
+  functions = "netlify/functions"  # Ensure this folder exists and contains your functions
+
+[functions]
+  external_node_modules = ["express"]
+  node_bundler = "esbuild"  # Optional, if you are using esbuild for bundling
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
